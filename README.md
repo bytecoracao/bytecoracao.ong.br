@@ -45,4 +45,4 @@ Lembre-se que esse trabalho é voluntário. Não podemos cobrir as suas despesas
 
 ## Pronto para começar?
 
-[Clique aqui para se cadastrar como voluntário](mailto:jackson.s.teixeira@gmail.com)
+[Clique aqui para se cadastrar como voluntário](mailto:contato@bytecoracao.ong.br)
