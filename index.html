@@ -1,177 +1,432 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Instituto ByteCoração</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat|Raleway:100"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@100;300;400&display=swap" rel="stylesheet" />
     <style>
-      body {
-        background: #4d4267; /* For browsers that do not support gradients */
-        background: -webkit-linear-gradient(
-          -25deg,
-          #7c4084 10%,
-          #4d4267
-        ); /* For Safari 5.1 to 6.0 */
-        background: -o-linear-gradient(
-          -25deg,
-          #7c4084 10%,
-          #4d4267
-        ); /* For Opera 11.1 to 12.0 */
-        background: -moz-linear-gradient(
-          -25deg,
-          #7c4084 10%,
-          #4d4267
-        ); /* For Firefox 3.6 to 15 */
-        background: linear-gradient(
-          -25deg,
-          #7c4084 10%,
-          #4d4267
-        ); /* Standard syntax */
-        color: #fff;
-        margin: 3% 6%;
-        font-family: "Montserrat", sans-serif;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: "Raleway", sans-serif;
-      }
-      h2 {
-        margin: 40px 0px 20px 0px;
-      }
-      a {
-        color: #fff;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      .quote {
-        margin: 30px 0px;
-        padding: 20px;
-        font-style: italic;
-        border: 1px dashed #fff;
-      }
+        :root {
+            --primary-color: #7c4084;
+            --secondary-color: #4d4267;
+            --light-color: #ffffff;
+            --accent-color: #ff6b6b;
+            --dark-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(-25deg, var(--primary-color) 10%, var(--secondary-color));
+            background-attachment: fixed;
+            color: var(--light-color);
+            font-family: "Montserrat", sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-family: "Raleway", sans-serif;
+            font-weight: 100;
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .logo span.byte {
+            font-weight: 400;
+        }
+
+        .logo span.coracao {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        section {
+            margin: 3rem 0;
+        }
+
+        h2, h3, h4, h5, h6 {
+            font-family: "Raleway", sans-serif;
+            margin: 2rem 0 1rem 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        .quote {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            font-style: italic;
+            border: 1px dashed var(--light-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--light-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #ff8585;
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <h1>Instituto ByteCoração</h1>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1><span class="byte">Byte</span><span class="coracao">Coração</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#quem-somos">Quem Somos</a></li>
+                    <li><a href="#o-que-fazemos">O que Fazemos</a></li>
+                    <li><a href="#voluntarios">Voluntários</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <p>
-      O Instituto ByteCoração é uma entidade sem fins lucrativos que une um grupo de voluntários desenvolvedores de software para elaboração e manutenção de softwares de código aberto com fins sociais nas áreas de saúde, educação e governo.
-    </p>
+        <main>
+            <section id="intro">
+                <div class="card">
+                    <h2>Instituto ByteCoração</h2>
+                    <p>
+                        O Instituto ByteCoração é uma entidade sem fins lucrativos que une um grupo de voluntários desenvolvedores de software para elaboração e manutenção de softwares de código aberto com fins sociais nas áreas de saúde, educação e governo.
+                    </p>
+                </div>
+            </section>
 
-    <h2>Quem somos</h2>
+            <section id="quem-somos">
+                <h2>Quem Somos</h2>
+                <p>
+                    Somos gente interessada em melhorar o mundo por meio de desenvolvimento de
+                    softwares, a nossa vocação.
+                </p>
+            </section>
 
-    <p>
-      Somos gente interessada em melhorar o mundo por meio de desenvolvimento de
-      softwares, a nossa vocação.
-    </p>
+            <section id="o-que-fazemos">
+                <h2>O que Fazemos</h2>
+                <p>Softwares e tecnologia para as áreas de saúde, educação e governo.</p>
 
-    <h2>O que fazemos</h2>
+                <h3>O que não fazemos</h3>
+                <ul>
+                    <li>Softwares sob encomenda</li>
+                    <li>Manutenção de equipamentos</li>
+                    <li>Instalação de softwares</li>
+                    <li>Aulas de programação</li>
+                </ul>
+            </section>
 
-    <p>Softwares e tecnologia para as áreas de saúde, educação e governo.</p>
+            <section id="voluntarios">
+                <h2>Voluntários</h2>
 
-    <h2>O que não fazemos</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Um voluntário precisa ter</h3>
+                        <ul>
+                            <li>
+                                <strong>Proatividade:</strong> você não precisa ser um gênio da programação ou hacker,
+                                basta ter boa vontade e querer ajudar. Até porque muitas atividades não
+                                requerem conhecimento em programação (documentação, testes, design, etc)
+                            </li>
+                            <li>
+                                <strong>Responsabilidade:</strong> seguir as diretrizes e recomendações do INSTITUTO e de
+                                cada projeto em particular
+                            </li>
+                            <li>
+                                <strong>Espirito de equipe:</strong> buscar ter um bom relacionamento de colaboração com
+                                os outros participantes do projeto
+                            </li>
+                            <li><strong>Senso de dono:</strong> pensar sempre em qualidade</li>
+                        </ul>
 
-    <ul>
-      <li>Softwares sob encomenda</li>
-      <li>Manutenção de equipamentos</li>
-      <li>Instalação de softwares</li>
-      <li>Aulas de programação</li>
-    </ul>
+                        <p>
+                            <strong>Lembre-se que esse trabalho é voluntário. Não podemos cobrir as suas
+                            despesas ou horas dedicadas</strong>
+                        </p>
+                    </div>
 
-    <h2>Um voluntário precisa ter</h2>
+                    <div class="card">
+                        <h3>Como a gente te ajuda</h3>
+                        <ul>
+                            <li>
+                                Criamos e disponibilizamos guias de passo a passo para facilitar o seu
+                                trabalho
+                            </li>
+                            <li>Respondemos dúvidas e fornecemos orientações aos voluntários</li>
+                            <li>
+                                Disponibilizamos documentos e apresentações para ajudar em reuniões com
+                                diretores e responsáveis por locais que possam abrigar novos chapters
+                            </li>
+                            <li>
+                                Organizamos encontros regionais para que haja troca de experiência entre
+                                voluntários e atividades locais
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-    <ul>
-      <li>
-        Proatividade: você não precisa ser um gênio da programação ou hacker,
-        basta ter boa vontade e querer ajudar. Até porque muitas atividades não
-        requerem conhecimento em programação (documentação, testes, design, etc)
-      </li>
-      <li>
-        Responsabilidade: seguir as diretrizes e recomendações do INSTITUTO e de
-        cada projeto em particular
-      </li>
-      <li>
-        Espirito de equipe: buscar ter um bom relacionamento de colaboração com
-        os outros participantes do projeto
-      </li>
-      <li>Senso de dono: pensar sempre em qualidade</li>
-    </ul>
+                <div class="card">
+                    <h3>Benefícios para você</h3>
+                    <ul>
+                        <li>
+                            Você vai desempenhar um papel importante ao contribuir com a sociedade
+                            em áreas sensíveis como saúde e educação, entre outros
+                        </li>
+                        <li>
+                            As competências desempenhadas atuando com o INSTITUTO vão contribuir
+                            para que seu currículo fique ainda mais atrativo
+                        </li>
+                        <li>
+                            Se você está começando a aprender a programar, será uma divertida
+                            maneira de praticar suas habilidades de codificação
+                        </li>
+                    </ul>
+                </div>
 
-    <p>
-      <strong
-        >Lembre-se que esse trabalho é voluntário. Não podemos cobrir as suas
-        despesas ou horas dedicadas</strong
-      >
-    </p>
+                <div class="quote">
+                    Isso não significa que o INSTITUTO não possa gerar receitas. Somos uma
+                    entidade sem fins lucrativos, ou seja, o resultado do exercício em caso de
+                    superávit (ou déficit, quando for o caso) é integralmente revertido para o
+                    desenvolvimento das atividades da entidade ou para o incremento de seu
+                    ativo imobilizado, não podendo ser distribuído. Nosso foco não está na
+                    obtenção de lucro, mas na prestação do serviço. Assim, qualquer
+                    arrecadação deve ser revertida para ampliar a atuação da entidade,
+                    melhorar a qualidade atual e ou para a geração de novos projetos ou
+                    produtos com a mesma finalidade.
+                </div>
 
-    <p class="quote">
-      Isso não significa que o INSTITUTO não possa gerar receitas. Somos uma
-      entidade sem fins lucrativos, ou seja, o resultado do exercício em caso de
-      superávit (ou déficit, quando for o caso) é integralmente revertido para o
-      desenvolvimento das atividades da entidade ou para o incremento de seu
-      ativo imobilizado, não podendo ser distribuído. Nosso foco não está na
-      obtenção de lucro, mas na prestação do serviço. Assim, qualquer
-      arrecadação deve ser revertida para ampliar a atuação da entidade,
-      melhorar a qualidade atual e ou para a geração de novos projetos ou
-      produtos com a mesma finalidade.
-    </p>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p><strong>Pronto para começar?</strong></p>
+                    <a href="mailto:voluntario@bytecoracao.ong.br" class="cta-button">Cadastre-se como voluntário</a>
+                </div>
+            </section>
 
-    <h2>Como a gente te ajuda</h2>
+            <section id="projetos" class="card">
+                <h2>Nossos Projetos</h2>
+                <p>Conheça alguns dos projetos de código aberto que estamos desenvolvendo e como você pode contribuir.</p>
+                <p>Em breve disponibilizaremos mais informações sobre nossos projetos em andamento e como você pode participar.</p>
+            </section>
+        </main>
 
-    <ul>
-      <li>
-        Criamos e disponibilizamos guias de passo a passo para facilitar o seu
-        trabalho
-      </li>
-      <li>Respondemos dúvidas e fornecemos orientações aos voluntários</li>
-      <li>
-        Disponibilizamos documentos e apresentações para ajudar em reuniões com
-        diretores e responsáveis por locais que possam abrigar novos chapters
-      </li>
-      <li>
-        Organizamos encontros regionais para que haja troca de experiência entre
-        voluntários e atividades locais
-      </li>
-    </ul>
+        <footer>
+            <div class="social-links">
+                <a href="#" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                <a href="#" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                <a href="#" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+            </div>
+            <p>&copy; 2025 Instituto ByteCoração. Todos os direitos reservados.</p>
+            <p><a href="mailto:contato@bytecoracao.ong.br">contato@bytecoracao.ong.br</a></p>
+        </footer>
+    </div>
 
-    <h2>Benefícios para você</h2>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-    <ul>
-      <li>
-        Você vai desempenhar um papel importante ao contribuir com a sociedade
-        em áreas sensíveis como saúde e educação, entre outros
-      </li>
-      <li>
-        As competências desempenhadas atuando com o INSTITUTO vão contribuir
-        para que seu currículo fique ainda mais atrativo
-      </li>
-      <li>
-        Se você está começando a aprender a programar, será uma divertida
-        maneira de praticar suas habilidades de codificação
-      </li>
-    </ul>
-
-    <br />
-
-    <p><strong>Pronto para começar?</strong></p>
-
-    <p>
-      <a href="mailto:contato@bytecoracao.ong.br"
-        >Clique aqui para se cadastrar como voluntário</a
-      >
-    </p>
-  </body>
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
 </html>
