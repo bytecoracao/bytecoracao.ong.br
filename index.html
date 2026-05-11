@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Instituto ByteCoração — voluntários desenvolvedores de software criando soluções open source para saúde, educação e governo.">
+  <meta name="description" content="Instituto ByteCoração - voluntários desenvolvedores de software criando soluções open source para saúde, educação e governo.">
   <link rel="canonical" href="https://bytecoracao.ong.br/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Instituto ByteCoração">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:url" content="https://bytecoracao.ong.br/">
-  <meta property="og:title" content="Instituto ByteCoração — Tecnologia com propósito">
+  <meta property="og:title" content="Instituto ByteCoração - Tecnologia com propósito">
   <meta property="og:description" content="Voluntários desenvolvedores de software criando soluções open source para saúde, educação e governo.">
   <meta name="theme-color" content="#7c4084">
-  <title>Instituto ByteCoração — Tecnologia com propósito</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <title>Instituto ByteCoração - Tecnologia com propósito</title>
   <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,9 +47,8 @@
   <!-- Navbar -->
   <nav class="sticky top-0 z-50 bg-[#FAFAFA] border-b border-[#E5E5E5]">
     <div class="max-w-5xl mx-auto px-4 md:px-8 h-14 flex items-center justify-between">
-      <a href="./" class="flex items-center gap-2">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#e05a7b" stroke="none"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
-        <span class="text-[15px] font-semibold tracking-tight text-[#111111]">Byte<span style="color:#7c4084;">Coração</span></span>
+      <a href="./">
+        <img src="assets/logo-horizontal.png" alt="ByteCoração" height="277" width="1512" class="h-7 w-auto" loading="eager">
       </a>
       <div class="flex items-center gap-4 md:gap-7">
         <a href="#o-que-fazemos" class="hidden md:block text-sm text-[#111111] hover:opacity-50 transition-opacity">O que fazemos</a>
@@ -75,26 +77,17 @@
     <!-- HERO -->
     <section class="border-b border-[#E5E5E5]" style="padding-top:96px;padding-bottom:96px;">
       <div class="container-inner">
-        <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
-          <div>
-            <p class="text-[11px] font-semibold tracking-wide uppercase mb-4" style="color:#7c4084;">Open Source · Voluntariado · Setbox</p>
-            <h1 class="text-[38px] md:text-[52px] font-extrabold leading-[1.05] tracking-[-0.03em] text-[#111111] mb-6">
-              Tecnologia feita com coração
-            </h1>
-            <p class="text-[15px] md:text-[17px] leading-[1.7] text-[#555555] mb-8">
-              Somos um grupo de voluntários desenvolvedores de software criando e mantendo soluções open source para saúde, educação e governo.
-            </p>
-            <div class="hero-cta" style="display:flex;flex-wrap:wrap;gap:12px;">
-              <a href="mailto:voluntario@bytecoracao.ong.br" class="inline-block text-[14px] text-white px-6 py-3 rounded-[6px] font-semibold transition-colors" style="background:#7c4084;" onmouseover="this.style.background='#5a2d60'" onmouseout="this.style.background='#7c4084'">Seja voluntário →</a>
-              <a href="#o-que-fazemos" class="inline-block text-[14px] text-[#111111] px-6 py-3 rounded-[6px] border border-[#E5E5E5] hover:bg-[#F7F7F7] transition-colors font-medium">Como funcionamos</a>
-            </div>
-          </div>
-          <div class="border border-[#E5E5E5] rounded-xl bg-white p-12 flex items-center justify-center">
-            <div style="text-align:center;">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="#e05a7b" style="margin:0 auto 20px;"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
-              <div class="text-[24px] font-extrabold tracking-tight text-[#111111]">Byte<span style="color:#7c4084;">Coração</span></div>
-              <div class="text-[12px] text-[#888888] mt-2 tracking-wide uppercase font-medium">Instituto sem fins lucrativos</div>
-            </div>
+        <div style="max-width:640px;margin:0 auto;text-align:center;">
+          <p class="text-[11px] font-semibold tracking-wide uppercase mb-4" style="color:#7c4084;">Open Source · Voluntariado · Setbox</p>
+          <h1 class="text-[38px] md:text-[52px] font-extrabold leading-[1.05] tracking-[-0.03em] text-[#111111] mb-6">
+            Tecnologia feita com coração
+          </h1>
+          <p class="text-[15px] md:text-[17px] leading-[1.7] text-[#555555] mb-8">
+            Somos um grupo de voluntários desenvolvedores de software criando e mantendo soluções open source para saúde, educação e governo.
+          </p>
+          <div class="hero-cta" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+            <a href="mailto:voluntario@bytecoracao.ong.br" class="inline-block text-[14px] text-white px-6 py-3 rounded-[6px] font-semibold transition-colors" style="background:#7c4084;" onmouseover="this.style.background='#5a2d60'" onmouseout="this.style.background='#7c4084'">Seja voluntário →</a>
+            <a href="#o-que-fazemos" class="inline-block text-[14px] text-[#111111] px-6 py-3 rounded-[6px] border border-[#E5E5E5] hover:bg-[#F7F7F7] transition-colors font-medium">Como funcionamos</a>
           </div>
         </div>
       </div>
@@ -133,7 +126,7 @@
               Desenvolvedores que querem mudar o mundo
             </h2>
             <p class="text-[15px] leading-[1.8] text-[#555555] mb-4">
-              Somos gente interessada em melhorar o mundo por meio de desenvolvimento de softwares — a nossa vocação.
+              Somos gente interessada em melhorar o mundo por meio de desenvolvimento de softwares, a nossa vocação.
             </p>
             <p class="text-[15px] leading-[1.8] text-[#555555]">
               Nenhum código aqui tem preço. Todo superávit é reinvestido integralmente na entidade para ampliar o alcance dos projetos.
@@ -305,7 +298,7 @@
         <div class="border border-[#E5E5E5] rounded-xl bg-white p-6 md:p-8">
           <p class="text-[11px] font-semibold tracking-wide uppercase mb-4" style="color:#7c4084;">Nossa postura</p>
           <p class="text-[15px] leading-[1.8] text-[#555555] italic">
-            "Somos uma entidade sem fins lucrativos — o resultado do exercício em caso de superávit é integralmente revertido para o desenvolvimento das atividades da entidade. Nosso foco não está na obtenção de lucro, mas na prestação do serviço. Qualquer arrecadação é revertida para ampliar a atuação, melhorar a qualidade e gerar novos projetos com a mesma finalidade."
+            "Somos uma entidade sem fins lucrativos, e o resultado do exercício em caso de superávit é integralmente revertido para o desenvolvimento das atividades da entidade. Nosso foco não está na obtenção de lucro, mas na prestação do serviço. Qualquer arrecadação é revertida para ampliar a atuação, melhorar a qualidade e gerar novos projetos com a mesma finalidade."
           </p>
         </div>
 

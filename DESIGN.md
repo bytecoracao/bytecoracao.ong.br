@@ -1,6 +1,6 @@
-# Design Reference - Setbox Sistemas Digitais
+# Design Reference - Instituto ByteCoração
 
-Análise visual baseada em https://entire.io (referência editorial), adaptada para identidade Setbox.
+Análise visual adaptada da identidade ByteCoração: editorial minimalista com paleta roxa/rosa.
 
 ---
 
@@ -12,13 +12,18 @@ Análise visual baseada em https://entire.io (referência editorial), adaptada p
 
 | Token | Valor | Uso |
 |---|---|---|
-| `bg` | `#FAFAFA` | Fundo de todas as páginas |
-| `bg-alt` | `#F7F7F7` | Fundo de seções alternadas (hero, carreira) |
+| `bg` | `#FAFAFA` | Fundo de todas as seções |
+| `bg-alt` | `#F7F7F7` | Fundo de seções alternadas |
+| `bg-purple-lt` | `#f5eaf7` | Fundo de pillars, ícones de card, badges |
 | `text` | `#111111` | Texto primário |
 | `text-muted` | `#555555-#888888` | Texto secundário, subtítulos |
 | `border` | `#E5E5E5` | Divisores, bordas de card |
-| `accent` | `#FB0D1C` | Vermelho Setbox: CTAs, bullets, labels, link ativo no nav |
-| `accent-hover` | `#C4000F` | Hover de botões e links vermelhos |
+| `accent` | `#7c4084` | Roxo: labels, nav ativo, bullets, botão principal |
+| `accent-hover` | `#5a2d60` | Hover do botão roxo |
+| `accent-pink` | `#e05a7b` | Rosa: ícone coração, botão CTA final |
+| `accent-pink-hover` | `#c0365a` | Hover do botão rosa |
+| `accent-dark` | `#3d1a42` | Roxo escuro: fundo da seção CTA final |
+| `neutral-lt` | `#dbbde0` | Borda de badge, texto sobre fundo escuro |
 
 ---
 
@@ -30,9 +35,9 @@ Análise visual baseada em https://entire.io (referência editorial), adaptada p
 
 | Nível | Tamanho | Peso | Uso |
 |---|---|---|---|
-| Display | 48-52px | 800 | H1 de páginas internas |
+| Display | 48-52px | 800 | H1 hero |
 | H2 | 26-38px | 700 | Títulos de seção |
-| H3 | 20-22px | 600 | Subtítulos, cabeçalhos de card |
+| H3 | 16-22px | 600 | Subtítulos, cabeçalhos de card |
 | Body | 15-17px | 400 | Parágrafos, descrições |
 | Small / Meta | 13px | 400-500 | Labels, bullets, células de tabela |
 | Nav | 14px | 400 | Links de navegação |
@@ -42,30 +47,32 @@ Análise visual baseada em https://entire.io (referência editorial), adaptada p
 ### Labels de seção
 
 ```html
-<p class="text-[11px] text-[#FB0D1C] font-semibold tracking-wide uppercase mb-3">Label</p>
+<p class="text-[11px] font-semibold tracking-wide uppercase mb-3" style="color:#7c4084;">Label</p>
 ```
 
 ---
 
 ## Layout e Grid
 
-**Max width:** `max-w-5xl` (~1024px) para a maioria das seções. `max-w-4xl` para heroes. `max-w-3xl` para CTAs centrados.
+**Max width:** `max-w-5xl` (~1024px) para navbar e footer. `.container-inner` (`max-width:1024px; margin:0 auto; padding:0 32px`) para seções.
 
-**Padding horizontal:** `px-4 md:px-8`
+**Alinhamento:** Hero e seção WHAT WE DO: grid 2 colunas (`1fr 1fr`, gap 64px). Cards 3 colunas: `repeat(3,1fr)`, gap 16px. CTAs centrados: `text-align:center`.
 
-**Alinhamento:** `mx-auto`. Hero sections: `text-center`. Seções de conteúdo: `grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16`.
+**Responsivo:** Classes utilitárias `.two-col`, `.three-col`, `.stats-grid` colapsar para 1 coluna em mobile via CSS inline (não Tailwind breakpoints) - padrão herdado.
 
 ---
 
 ## Espaçamento Vertical
 
-| Contexto | Classe Tailwind |
+| Contexto | Valor |
 |---|---|
-| Entre seções principais | `py-16 md:py-24` |
-| Hero (topo da página) | `pt-16 md:pt-24 pb-14 md:pb-20` |
-| H1 → parágrafo | `mb-6` |
-| Parágrafo → CTA | `mb-8 md:mb-10` |
-| Label → H2 | `mb-3` → `mb-5` |
+| Hero | `padding-top:96px; padding-bottom:96px` |
+| Seções principais | `padding-top:80px; padding-bottom:80px` |
+| Pillars (compacto) | `padding-top:56px; padding-bottom:56px` |
+| CTA final | `padding-top:96px; padding-bottom:96px` |
+| Label -> H2 | `mb-3` -> `mb-5` |
+| H1 -> parágrafo | `mb-6` |
+| Parágrafo -> CTA | `mb-8` |
 
 ---
 
@@ -74,33 +81,40 @@ Análise visual baseada em https://entire.io (referência editorial), adaptada p
 ### Navbar
 
 ```
-[Logo Setbox]    Produtos  Serviços  Divisões  Sobre  [Falar conosco ▶]
+[Logo ByteCoração]    O que fazemos  Voluntários  [Seja voluntário ▶]
 ```
 
 - Sticky top, `bg-[#FAFAFA]`, `border-b border-[#E5E5E5]`, `h-14`, `z-50`
-- Links: `text-sm text-[#111111] hover:opacity-50 transition-opacity`, `hidden md:block`
-- Link ativo: `text-[#FB0D1C] font-medium` (sem hover)
-- Botão "Falar conosco": `bg-[#FB0D1C] text-white px-4 py-1.5 rounded-[6px] hover:bg-[#C4000F]`
+- Logo: SVG coração `fill:#e05a7b` + `Byte` preto + `Coração` em `#7c4084`
+- Links: `text-sm text-[#111111] hover:opacity-50 transition-opacity hidden md:block`
+- Link ativo: `text-[#7c4084] font-medium`
+- Botão "Seja voluntário": `bg-[#7c4084] text-white px-4 py-1.5 rounded-[6px]`, hover `#5a2d60`
+- Mobile: hambúrguer toggle, menu dropdown com links e CTA
 
-### Botão Primário
-
-```css
-background: #FB0D1C;
-color: #fff;
-border-radius: 6px;
-padding: 12px 24px;
-font-size: 14px;
-font-weight: 600;
-```
+### Botão Primário (roxo)
 
 ```html
-<a href="mailto:contato@setbox.com.br" class="inline-block text-[14px] bg-[#FB0D1C] text-white px-6 py-3 rounded-[6px] hover:bg-[#C4000F] transition-colors font-semibold">CTA →</a>
+<a href="mailto:voluntario@bytecoracao.ong.br"
+   class="inline-block text-[14px] text-white px-6 py-3 rounded-[6px] font-semibold transition-colors"
+   style="background:#7c4084;"
+   onmouseover="this.style.background='#5a2d60'"
+   onmouseout="this.style.background='#7c4084'">CTA →</a>
 ```
 
-### Link Inline / "Acessar site"
+### Botão CTA Final (rosa, sobre fundo escuro)
 
 ```html
-<a href="..." class="inline-flex items-center gap-2 text-[14px] text-[#FB0D1C] font-medium hover:opacity-70 transition-opacity">Acessar site →</a>
+<a href="mailto:voluntario@bytecoracao.ong.br"
+   class="inline-block text-[14px] font-semibold px-6 py-3 rounded-[6px] transition-colors text-white"
+   style="background:#e05a7b;"
+   onmouseover="this.style.background='#c0365a'"
+   onmouseout="this.style.background='#e05a7b'">CTA →</a>
+```
+
+### Botão Secundário
+
+```html
+<a href="#ancora" class="inline-block text-[14px] text-[#111111] px-6 py-3 rounded-[6px] border border-[#E5E5E5] hover:bg-[#F7F7F7] transition-colors font-medium">Texto</a>
 ```
 
 ### Card
@@ -109,26 +123,39 @@ font-weight: 600;
 <div class="border border-[#E5E5E5] rounded-xl bg-white p-6">...</div>
 ```
 
-### Card de Logo (clicável, com hover)
-
-Usado em divisoes.html e produtos.html. O card inteiro é um link; hover escala a imagem.
+### Card com ícone de seção
 
 ```html
-<a href="https://exemplo.com" target="_blank" class="border border-[#E5E5E5] rounded-xl bg-white p-8 flex items-center justify-center group">
-  <img src="assets/logo.png" alt="Nome" class="max-h-24 w-auto transition-transform group-hover:scale-105" loading="lazy" width="W" height="H">
-</a>
+<div class="border border-[#E5E5E5] rounded-xl bg-white p-6">
+  <div style="width:32px;height:32px;border-radius:8px;background:#f5eaf7;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+    <svg width="18" height="18" ... stroke="#7c4084" ...></svg>
+  </div>
+  <h3 class="text-[16px] font-semibold tracking-tight text-[#111111] mb-2">Título</h3>
+  <p class="text-[14px] leading-[1.7] text-[#555555]">Descrição.</p>
+</div>
 ```
 
-### Bullets com seta vermelha
+### Badge de status (ATIVO)
 
 ```html
-<ul class="space-y-3">
+<span class="text-[11px] font-semibold ml-auto flex-shrink-0"
+      style="letter-spacing:0.04em;padding:3px 8px;border-radius:9999px;background:#f5eaf7;border:1px solid #dbbde0;color:#7c4084;">ATIVO</span>
+```
+
+### Bullets com seta roxa
+
+```html
+<ul class="space-y-4">
   <li class="flex gap-3 text-[14px] text-[#444444]">
-    <span class="text-[#FB0D1C] flex-shrink-0 font-bold">→</span>
+    <span class="font-bold flex-shrink-0 mt-0.5" style="color:#7c4084;">→</span>
     <span>Texto do item</span>
   </li>
 </ul>
 ```
+
+### Seção CTA Final
+
+Fundo `#3d1a42`, texto branco, subtítulo `#dbbde0`, botão rosa.
 
 ### Divisor de Seção
 
@@ -136,65 +163,18 @@ Usado em divisoes.html e produtos.html. O card inteiro é um link; hover escala 
 
 ### Footer
 
-Logo + endereço à esquerda, coluna "Empresa" à direita. Sem status dot, sem coluna Produtos.
+Setbox logo + endereço, sem colunas.
 
 ```
-[Logo Setbox]              Empresa
-© 2026 Setbox              Empregos
-Rua João Bettega, 649      Open Source
-- Sala 3A, Curitiba / PR   Byte Coração
+[Logo Setbox]
+© 2026 Setbox Serviços Digitais
+Rua João Bettega, 649 - Sala 3A
+Curitiba / PR
 ```
 
-- Fonte: 12px, `text-[#888888]` nos links, `text-[#BBBBBB]` no bloco esquerdo
-- Cabeçalho de coluna: 12px, `font-semibold text-[#111111]`
+- Fonte: 12px, `text-[#BBBBBB]`
 - Separador topo: `border-t border-[#E5E5E5]`
 - Padding: `py-10 md:py-14`
-
----
-
-## Paletas por marca
-
-Tipografia, layout, espaçamento e componentes são sempre os padrões Setbox acima. Só a paleta de accent muda por marca.
-
-| Marca | Accent | Hover | Contexto |
-|---|---|---|---|
-| Setbox (site) | `#FB0D1C` | `#C4000F` | Identidade principal. Todos os produtos próprios herdam. |
-| ReDoc | `#FB0D1C` | `#C4000F` | Produto Setbox. Herda vermelho. |
-| Integra Moda | `#FB0D1C` | `#C4000F` | Produto Setbox. Herda vermelho. |
-| Agroprocess | `#3FA110` | `#146E37` | Divisão agro. Paleta Sicredi (verde cooperativo). |
-| PJ Park | `#ff3f6e` | `#193044` | Divisão legaltech. Paleta própria (rosa + azul-marinho). |
-
-### Tokens Agroprocess (Sicredi)
-
-| Token | Valor | Uso |
-|---|---|---|
-| `accent` | `#3FA110` | CTAs, labels de seção, ícones, nav ativo |
-| `accent-hover` | `#146E37` | Hover de botões primários |
-| `accent-dark` | `#146E37` | Fundo de seção CTA final |
-| `accent-lt` | `#F2F9ED` | Fundo de ícone em card, seções sutis |
-| `yellow` | `#FFCD00` | Botão de destaque sobre fundo verde escuro |
-| `neutral-lt` | `#D7E6C8` | Bordas de cards em seções com fundo verde |
-| `neutral` | `#5A645A` | Texto secundário em contexto agro |
-
-Labels de seção Agroprocess: `text-[11px] text-[#3FA110] font-semibold tracking-wide uppercase`
-
-Bullets Agroprocess: `<span class="font-bold flex-shrink-0" style="color:#3FA110;">→</span>`
-
-### Tokens PJ Park
-
-| Token | Valor | Uso |
-|---|---|---|
-| `accent` | `#ff3f6e` | CTAs, labels de seção, ícones, nav ativo, links |
-| `accent-hover` | `#193044` | Hover de botões (inverte para navy) |
-| `dark` | `#193044` | Fundo de seções hero escuras, header, footer |
-| `dark-secondary` | `#2b4153` | Botões secundários, texto em contexto escuro |
-| `bg-muted` | `#f0f4f8` | Fundo de seções alternadas (azul-acinzentado claro) |
-| `icon-bg` | `#fff0f4` | Fundo de ícone em card (rosa ultraclaro) |
-| `text-on-dark` | `#c7cbcf` | Texto secundário sobre fundo navy |
-
-Labels de seção PJ Park: `text-[11px] font-semibold tracking-wide uppercase" style="color:#ff3f6e;"`
-
-Bullets PJ Park: `<span class="font-bold flex-shrink-0" style="color:#ff3f6e;">→</span>`
 
 ---
 
